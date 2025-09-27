@@ -1,0 +1,424 @@
+.shop-management {
+    width: 90%;
+    height: 100%;
+    min-height: 100vh;
+    font-size: 13px;
+    position: relative;
+}
+
+.shop-management hr{
+    border: 1px solid #f1efef;
+    margin-bottom: 5px;
+}
+
+.shop-management-title {
+    font-size: 25px;
+    font-weight: 500;
+    text-align: left;
+    padding: 20px 0;
+    color: #10a0b2;
+}
+
+.shop-management-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shop-management-title .search-food input,
+.shop-management-title .search-food button {
+    font-size: 12px;
+    padding: 5px 40px;
+}
+
+.btn-search {
+    padding: 5px 10px !important;
+    background-color: #09a1e8;
+    color: white;
+    border: 1px solid #09a1e8;
+    transition:
+        transform 0.3s ease,
+        background 0.4s ease;
+}
+
+.btn-search:hover {
+    transform: scale(1.04);
+    background-color: #0945e8;
+}
+
+.add-new {
+    width: 100px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.44);
+    border-radius: 5px;
+    overflow: hidden;
+    color: rgb(206, 206, 206);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    box-shadow: 0 2px 4px black;
+    transition: transform 0.3s ease;
+}
+
+.add-new:hover {
+    background-color: #2c3e50;
+    color: white;
+    transform: scale(1.03);
+}
+
+.add-new .fa-plus {
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+hr {
+    border: 1px solid rgb(43, 42, 42);
+    margin: 0;
+}
+
+.list-food {
+    margin: 20px auto;
+    width: 100%;
+    max-width: 1200px;
+    color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(0,0,0,0.5);
+    color: #e7e4e4;
+}
+
+.table thead {
+    background-color: #444;
+    text-transform: uppercase;
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #666;
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+.table th {
+    font-weight: 400;
+    color: #ddd;
+    position: relative;
+    transition: background 0.5s ease;
+}
+
+.table th:hover {
+    background-color: #333;
+}
+
+.paging {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.paging-item {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #333;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition:
+        background-color 0.3s,
+        color 0.3s;
+}
+
+.paging-item:hover,
+.paging-item.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.paging-item.previous,
+.paging-item.next {
+    font-weight: bold;
+}
+
+.manager-container {
+    opacity: 0;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.form-food-manager {
+    min-width: 800px;
+    min-height: 400px;
+    background: radial-gradient(circle, rgb(52, 53, 97) 30%, rgba(25, 26, 61, 1) 70%);
+    border-radius: 20px;
+    position: fixed;
+    top: 150%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8),
+    0 0 25px rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    left: 50%;
+    transition: top 0.5s ease;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.form-food-manager .required-star {
+    color: red;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.form-food-manager .form-food-manager-title {
+    text-align: center;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #0a53be;
+}
+
+.form-food-manager hr {
+    border: 1px solid white;
+}
+
+.form-food-manager .close-icon {
+    color: red;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.form-food-manager .close-icon:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+.form-food-manager-content {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    display: flex;
+}
+
+.form-food-manager .content-food {
+    width: 100%;
+}
+
+.content-food p {
+    font-size: 15px;
+    font-weight: 500;
+    color: #259ab0;
+    display: flex;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.content-food input,
+.content-food select {
+    width: 60% !important;
+    color: #d0cccc;
+    font-weight: normal;
+    font-size: 13px;
+    padding: 5px;
+    box-shadow: 0 2px 4px #343434;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+    background: black;
+}
+
+.content-food .content-form-title {
+    display: inline-block;
+    width: 120px;
+}
+
+.form-food-manager .btn-manager-food {
+    padding: 8px 16px;
+    border: none;
+    background: #0a58ca;
+    border-radius: 5px;
+    color: #d5d2d2;
+    font-size: 16px;
+    margin-left: 10px;
+    box-shadow: 0 2px 4px blue;
+    transition: transform 0.3s ease;
+}
+
+.form-food-manager .btn-manager-food:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+.btn-status {
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.food-active {
+    background-color: #28a745;
+    color: white;
+}
+
+.food-active:hover {
+    background-color: #218838;
+}
+
+.food-inactive {
+    background-color: #dc3545;
+    color: white;
+}
+
+.food-inactive:hover {
+    background-color: #c82333;
+}
+
+.btn-status i {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+.btn-delete i {
+    margin-right: 5px;
+}
+
+.table td img.food-thumbnail {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.content-food .food-image {
+    width: 60% !important;
+    padding: 5px;
+    background: transparent;
+    color: #d0cccc;
+}
+
+.content-food #current-food-image {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin: 10px 0;
+    border: 2px solid #0a53be;
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.status-badge.in-stock {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #2e7d32;
+}
+
+.status-badge.out-of-stock {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #c62828;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-start;
+}
+
+.btn-view {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-view:hover {
+    background-color: #1565c0;
+}
+
+.btn-edit {
+    background-color: #388e3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-edit:hover {
+    background-color: #2e7d32;
+}
+
+.btn-edit:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.btn-delete {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-delete:hover {
+    background-color: #c62828;
+} 

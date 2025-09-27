@@ -1,0 +1,35 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MovieTheaterFrontendApplication<movie-theater-frontend>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.movie_theater_frontend.MovieTheaterFrontendApplication",
+            "projectName": "movie-theater-frontend",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=54813 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=movie-theater-frontend"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MovieTheatersApplication<movie-theaters>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.movie_theaters.MovieTheatersApplication",
+            "projectName": "movie-theaters",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MovieTheaterBackendApisApplication<movie-theaters>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.movie_theaters.MovieTheaterBackendApisApplication",
+            "projectName": "movie-theaters",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Quản Lý Shop</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="/css/libraries.css">
+    <link rel="stylesheet" href="/css/client/index.css">
+    <link rel="stylesheet" href="/css/admin/index.css">
+    <link rel="stylesheet" href="/css/admin/shop-manager.css">
+    <link rel="stylesheet" href="/css/admin/menu.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+</head>
+
+<body>
+<div class="admin-containers">
+    <div class="menu-admin"></div>
+    <div class="content">
+        <div class="shop-management">
+            <div class="shop-management-title">
+                Quản lý đồ ăn
+                <div class="search-food">
+                    <input type="text" placeholder="Tìm kiếm đồ ăn...">
+                    <button class="btn-search"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <hr>
+            <a href="">
+                <div class="add-new add-food">
+                    <i class="fas fa-plus"></i>
+                    Thêm mới
+                </div>
+            </a>
+
+            <div class="list-food">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ảnh</th>
+                        <th>Tên đồ ăn</th>
+                        <th>Giá</th>
+                        <th>Số lượng tồn</th>
+                        <th>Trạng thái</th>
+                        <th>Hiển thị</th>
+                        <th>Thao tác</th>
+                    </tr>
+                    </thead>
+                    <tbody id="food-table-body">
+                    <!-- Data will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="paging">
+                <!-- Pagination links will be inserted here by JavaScript -->
+            </div>
+
+            <!-- form add food -->
+            <div class="manager-container">
+                <div class="form-food-manager form-food-add">
+                    <i class="fas fa-times-circle close-icon"></i>
+                    <div class="form-food-manager-title form-food-add-title">Thêm mới đồ ăn</div>
+                    <hr>
+                    <div class="form-food-manager-content form-food-add-content">
+                        <div class="content-food">
+                            <p>
+                                <span class="content-form-title">Tên đồ ăn:<span class="required-star">*</span></span>
+                                <input type="text" class="food-name" value="" name="name" placeholder="Nhập tên đồ ăn">
+                            </p>
+                            <p>
+                                <span class="content-form-title">Giá:<span class="required-star">*</span></span>
+                                <input type="number" class="food-price" value="" name="price" placeholder="Nhập giá">
+                            </p>
+                            <p>
+                                <span class="content-form-title">Số lượng:<span class="required-star">*</span></span>
+                                <input type="number" class="food-stock" value="" name="stock" placeholder="Nhập số lượng">
+                            </p>
+                            <p>
+                                <span class="content-form-title">Ảnh:<span class="required-star">*</span></span>
+                                <input type="file" class="food-image" name="image" accept="image/*">
+                            </p>
+                            <p>
+                                <span class="content-form-title">Mô tả:</span>
+                                <input type="text" class="food-description" value="" name="description" placeholder="Nhập mô tả">
+                            </p>
+                        </div>
+                    </div>
+                    <button class="btn-manager-food btn-add-food">Thêm mới đồ ăn</button>
+                </div>
+
+                <!-- form edit food -->
+                <div class="form-food-manager form-food-edit">
+                    <i class="fas fa-times-circle close-icon"></i>
+                    <div class="form-food-manager-title form-food-edit-title">Thông tin chi tiết đồ ăn</div>
+                    <hr>
+                    <div class="form-food-manager-content form-food-edit-content">
+                        <div class="content-food">
+                            <p><span class="content-form-title">Id:</span> <input style="background-color: #d2d0d0; color: black" type="text" class="food-id" id="food-id-update" readonly></p>
+                            <p>
+                                <span class="content-form-title">Tên đồ ăn:</span>
+                                <input type="text" class="food-name" id="food-name-update">
+                            </p>
+                            <p>
+                                <span class="content-form-title">Giá:</span>
+                                <input type="number" class="food-price" id="food-price-update">
+                            </p>
+                            <p>
+                                <span class="content-form-title">Số lượng:</span>
+                                <input type="number" class="food-stock" id="food-stock-update">
+                            </p>
+                            <p>
+                                <span class="content-form-title">Ảnh hiện tại:</span>
+                                <img id="current-food-image" src="" alt="Food Image" style="max-width: 100px; max-height: 100px;">
+                            </p>
+                            <p>
+                                <span class="content-form-title">Cập nhật ảnh:</span>
+                                <input type="file" class="food-image" id="food-image-update" accept="image/*">
+                            </p>
+                            <p>
+                                <span class="content-form-title">Mô tả:</span>
+                                <input type="text" class="food-description" id="food-description-update" placeholder="Nhập mô tả">
+                            </p>
+                        </div>
+                    </div>
+                    <button class="btn-manager-food btn-edit-food">Cập nhật đồ ăn</button>
+                </div>
+            </div>
+
+            <!-- View Food Modal -->
+            <div class="form-food-view">
+                <div class="form-header">
+                    <h2>Chi tiết đồ ăn</h2>
+                    <i class="fas fa-times close-icon"></i>
+                </div>
+                <div class="form-body">
+                    <div class="food-details">
+                        <div class="food-image-container">
+                            <img id="food-image-view" src="" alt="Food Image" class="food-image-preview">
+                        </div>
+                        <div class="food-info">
+                            <div class="info-group">
+                                <label>Tên đồ ăn:</label>
+                                <span id="food-name-view"></span>
+                            </div>
+                            <div class="info-group">
+                                <label>Giá:</label>
+                                <span id="food-price-view"></span>
+                            </div>
+                            <div class="info-group">
+                                <label>Số lượng tồn:</label>
+                                <span id="food-stock-view"></span>
+                            </div>
+                            <div class="info-group">
+                                <label>Trạng thái:</label>
+                                <span id="food-status-view"></span>
+                            </div>
+                            <div class="info-group">
+                                <label>Mô tả:</label>
+                                <p id="food-description-view"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="/js/admin/shop-manager.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.menu-admin').load("/menu", function () {
+            $.getScript('/js/admin/menu.js');
+        });
+    });
+</script>
+</body>
+</html> 

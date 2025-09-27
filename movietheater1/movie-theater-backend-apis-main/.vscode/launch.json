@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MovieTheatersApplication<movie-theaters>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.movie_theaters.MovieTheatersApplication",
+            "projectName": "movie-theaters",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
